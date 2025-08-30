@@ -720,8 +720,44 @@
         transform: rotate(0);
       }
     }
+
+    .farewell-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999999;
+  text-align: center;
+  animation: fadeOut 1s ease-in-out 8s forwards;
+}
+.farewell-title {
+  font-size: 5rem;
+  font-family: 'Tajawal', sans-serif;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 20px #ff4b04; }
+  to { text-shadow: 0 0 40px #ff4b04, 0 0 80px #ff4b04; }
+}
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
   </style>
 </head>
+<div id="farewell-screen" class="farewell-screen">
+  <h1 class="farewell-title">وداعا كندا..</h1>
+</div>
+
     </div>
     
     <!-- Confetti Animation -->
@@ -768,7 +804,7 @@
         <div class="feature-card" style="background-image: url('https://i.postimg.cc/y69jK0B5/c19ef075-39ec-4913-9808-93689103e432.jpg');">
           <img src="https://i.postimg.cc/y69jK0B5/c19ef075-39ec-4913-9808-93689103e432.jpg" alt="الإمبراطور">
           <i class="fas fa-crown"></i>
-          <p><a class='neon-link' href='https://www.instagram.com/__n.a.g.u.m.o__/' target="_blank"</a> انستجرام ناغومو</a></p>
+          <p><a class='neon-link' href='https://www.instagram.com/____nagumo____/' target="_blank"</a> انستجرام ناغومو</a></p>
           <h3>الإمـبــراطــور</h3>
           <p>ناغومو ❄</p>
         </div>
@@ -776,7 +812,7 @@
         <div class="feature-card" style="background-image: url('https://i.postimg.cc/xj4QrDfg/yuta.jpg');">
           <img src="https://i.postimg.cc/xj4QrDfg/yuta.jpg" alt="نائب الإمبراطور">
           <i class="fas fa-sun"></i>
-          <p><a class='neon-link' href='https://www.instagram.com/dendlodhdv/' target="_blank"</a> انستجرام يوتا</a></p>
+          <p><a class='neon-link' href='https://www.instagram.com/dendloo/' target="_blank"</a> انستجرام يوتا</a></p>
           <h3>نائـب الإمـبـراطـور</h3>
           <p>يوتا 💋</p>
         </div>
@@ -963,7 +999,6 @@
   
   <footer>
     <p>جميع حقوق المملكة محفوظة © 2025</p>
-        <p>  + يوان عمك 🌔 </p>
   </footer>
   
   <!-- Music -->
@@ -1018,6 +1053,13 @@
     
     document.querySelectorAll('section').forEach(section => observer.observe(section));
   </script>
+
+  <script>
+  setTimeout(() => {
+    const farewell = document.getElementById('farewell-screen');
+    if (farewell) farewell.style.display = 'none';
+  }, 8500); // تختفي بعد 8.5 ثانية
+</script>
 </body>
 
 </html>
